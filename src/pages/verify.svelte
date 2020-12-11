@@ -1,5 +1,5 @@
 <script>
-    import { goto } from "@sveltech/routify"
+    import { goto } from "@roxi/routify"
     import { getToken } from "./userinfo.js"
     import firebase from "firebase/app"
     import "firebase/auth"

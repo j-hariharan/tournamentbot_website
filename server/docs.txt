@@ -1,0 +1,136 @@
+GET /tournament?server=server_id
+to get the tournaments of a particular server, ordered by start time
+
+Response:
+[
+  {
+    id: Unique Tournament ID
+    name: Tournament name
+    start_time: Start time of tournament
+    announcements_channel: Channel ID of announcements
+    chat_channel: Channel ID for chat commands
+  }
+]
+
+
+
+
+
+
+
+
+GET /tournament/:id
+to get all details of the tournament with a specific ID
+
+Response: 
+
+{
+ announcements_channel: <String>
+ chat_channel: <String>
+ name: <String>
+ server: <String>
+ start_time: <Integer>
+ 
+ 
+ completed_games: <Array>[{
+   black: <String>,    // discord id
+   white: <String>,    // discord id
+   time_completed: <Integer>,
+   winner: <String>,   // "black" or "white"
+   game_id: <String>
+ }]
+ 
+ ongoning_games: <Array>[{
+   black: <String>,    // discord id
+   white: <String>,    // discord id
+   time_started: <Integer>,
+   winner: <String>,   // "black" or "white"
+   game_id: <String>
+ }]
+
+ pending_games: <Array>[{
+   black: <String>,    // discord id
+   white: <String>,    // discord id
+   scheduled: <Boolean>,
+   time_scheduled: <Integer>,
+   winner: <String>,   // "black" or "white"
+   game_id: <String>
+ }]
+ 
+ participants: <Array>[{
+   discord_id: <String>,
+   uid: <String>,
+   games_pending: <Integer>,
+   games_played: <Integer>,
+   games_won: <Integer>,
+   games_lost: <Integer>,
+   games_drawn: <Integer>,
+   points: <Number>  
+ }]
+
+}
+
+
+
+
+
+
+
+
+
+
+GET /tournament/:id/games
+to get details about completed, ongoing and pending games of a tournament with a specific ID
+
+Response:
+{
+ completed_games: <Array>[{
+   black: <String>,    // discord id
+   white: <String>,    // discord id
+   time_completed: <Map>,
+   winner: <String>,   // "black" or "white"
+   game_id: <String>
+ }]
+ 
+ ongoning_games: <Array>[{
+   black: <String>,    // discord id
+   white: <String>,    // discord id
+   time_started: <Integer>,
+   winner: <String>,   // "black" or "white"
+   game_id: <String>
+ }]
+
+ pending_games: <Array>[{
+   black: <String>,    // discord id
+   white: <String>,    // discord id
+   scheduled: <Boolean>,
+   time_scheduled: <Integer>,
+   winner: <String>,   // "black" or "white"
+   game_id: <String>
+ }]
+}
+
+
+
+
+
+
+
+
+
+GET /tournament/:id/participants
+to get the list of participants of a tournament with a specific ID
+
+Response:
+[
+  {
+   discord_id: <String>,
+   uid: <String>,
+   games_pending: <Integer>,
+   games_played: <Integer>,
+   games_won: <Integer>,
+   games_lost: <Integer>,
+   games_drawn: <Integer>,
+   points: <Number>  
+ }
+]

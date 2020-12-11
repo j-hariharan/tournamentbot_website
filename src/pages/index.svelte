@@ -1,7 +1,7 @@
 <script>
     import firebase from "firebase/app"
     import "firebase/auth"
-    import { url } from "@sveltech/routify"
+    import { url } from "@roxi/routify"
     import userInfo from "./userInfo.js"
 
 
